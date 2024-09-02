@@ -1,0 +1,23 @@
+$xs: "(max-width: 575.9px)";
+$sm: "(min-width: 576px)";
+$md: "(min-width: 768px)";
+$lg: "(min-width: 992px)";
+$xl: "(min-width: 1200px)";
+$xxl: "(min-width: 1400px)";
+
+$lg-max: "(max-width: 992px)";
+
+:root {
+  --time-transition: 0.3s;
+  --time-long: 1s;
+  --c-white-main: #fff;
+  --c-white-transparent: #f8f8f8;
+  --c-white-shadow: #e1e1e1;
+  --c-grey-text: #626262;
+  --c-transparent: #f1f1f173;
+  --c-black-main: #000;
+  --c-main: #3fbbc0;
+  --c-main-shadow: #69e3ebbe;
+  --c-main-transparent: #9ce0e4e6;
+  --c-title: #777;
+}
