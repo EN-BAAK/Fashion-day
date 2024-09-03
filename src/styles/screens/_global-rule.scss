@@ -1,19 +1,16 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html {
   scroll-behavior: smooth;
   scroll-padding: 15px 0 0 0;
 }
 body {
-  font-family: "Open Sans", sans-serif !important;
   font-size: 18px;
 
   color: var(--c-black-main);
-}
-.section {
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 *[data-ani] {
   @include opacity(0);
@@ -59,17 +56,5 @@ input[type="number"] {
 }
 section {
   padding: 50px 20px;
-  // overflow-x: hidden;
   overflow: hidden;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", sans-serif;
-}
-.App.arabic {
-  direction: rtl;
 }

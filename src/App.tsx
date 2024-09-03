@@ -1,10 +1,11 @@
 import React from "react"
+import Main from "./components/Main"
 
 const App = (): React.JSX.Element => {
 
   return (
     <div className="App">
-      <p>hello</p>
+      <Main />
     </div>
   )
 }
