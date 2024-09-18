@@ -1,9 +1,10 @@
 import { createSlice, Slice } from "@reduxjs/toolkit"
-import { SliderStateType } from "../../../misc/types"
+import { SliderStateType } from "../../misc/types"
+import { sliderData } from "../../assets/data/dummyData"
 
 const initialState: SliderStateType = {
   value: 0,
-  length: 4
+  length: sliderData.length
 }
 
 export const SliderSlice: Slice = createSlice({
@@ -11,12 +12,15 @@ export const SliderSlice: Slice = createSlice({
   initialState: initialState,
   reducers: { // actions
     nextSlide(state, action) {
-      state.value = action.payload > state.length ? 0 : action.payload
+      state.value = action.payload >= state.length ? 0 : action.payload
     },
     prevSlide(state, action) {
-      state.value = action.payload < 0 ? state.length : action.payload
+      state.value = action.payload < 0 ? state.length - 1 : action.payload
     },
-    dotSlide() { }
+    dotSlide(state, action) {
+      const slide = action.payload
+      state.value = slide
+    }
   }
 })
 

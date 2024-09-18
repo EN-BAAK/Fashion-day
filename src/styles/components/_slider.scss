@@ -1,0 +1,42 @@
+#slider {
+  .product {
+    @include prefixer(transform, scale(0));
+    @include opacity(0);
+    &.active {
+      @include animation(appear, var(--time-transition) ease-in-out forwards);
+    }
+
+    img {
+      height: 605px;
+    }
+
+    .text-holder {
+      top: 40px;
+      @include center-x;
+    }
+  }
+
+  .bullets-holder {
+    bottom: 55px;
+    @include center-x;
+  }
+
+  .slider-controller {
+    @include same-scale(45px);
+    @include centering;
+    @include center-y;
+
+    &.next {
+      right: 4px;
+    }
+
+    &.prev {
+      left: 4px;
+    }
+
+    &:hover {
+      background-color: var(--c-green-transparent);
+      color: var(--c-white-main);
+    }
+  }
+}

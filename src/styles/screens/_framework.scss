@@ -13,3 +13,15 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.transition-300 {
+  @include prefixer(transition, var(--time-transition));
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-center-y {
+  display: flex;
+  align-items: center;
+}
