@@ -1,0 +1,17 @@
+#navigate-buttons {
+  .btn {
+    &:hover {
+      background-color: var(--c-green-transparent);
+    }
+  }
+  .offer {
+    background-color: var(--c-green-transparent);
+    color: var(--c-orange);
+  }
+  .img-holder {
+    img {
+      height: 600px;
+      box-shadow: 1px 1px 15px 0 var(--c-shadow);
+    }
+  }
+}

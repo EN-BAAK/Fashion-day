@@ -11,7 +11,7 @@ const Slider = (): React.JSX.Element => {
   return (
     <div id='slider' className='position-relative pb-4'>
       <div>
-        {sliderData.map((item, index) => (
+        {sliderData.map((item) => (
           <div
             key={item.id}
             className={`product ${parseInt(item.id) === slideIndex && "active"}`}

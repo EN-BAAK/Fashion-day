@@ -29,12 +29,12 @@ const Navbar = (): React.JSX.Element => {
           <div className="d-flex align-items-center me-4 cursor-pointer">
             <FaRegHeart fontSize={22} />
 
-            <p className='text-capitalize m-0 font-special fw-400 ms-1'>Whish list</p>
+            <p className='text-capitalize m-0 font-special fw-medium ms-3'>Whish list</p>
           </div>
 
           <div className="d-flex align-items-center cursor-pointer">
             <MdOutlineShoppingBag fontSize={22} />
-            <p className='text-capitalize m-0 font-special fw-400 ms-1'>Shopping bag</p>
+            <p className='text-capitalize m-0 font-special fw-medium ms-3'>Shopping bag</p>
           </div>
         </div>
       </div>
