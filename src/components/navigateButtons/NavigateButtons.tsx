@@ -1,19 +1,27 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import clothes from "../../assets/images/clothes-min.jpg"
+import { filterProducts } from '../../features/slices/productsSlice'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const NavigateButtons = (): React.JSX.Element => {
   const buttons: string[] = ["Hoodies", "Dresses", "Suits", "Shoes", "T-Shirts", "Jeans", "Jackets", "Bags"]
+
+  const dispatch = useDispatch()
 
   return (
     <div id='navigate-buttons' className='py-5'>
       <div className="flex-center">
         {buttons.map((button, index) => (
           <div key={index} className='me-4'>
-            <Button
-              variant='outline-secondary'
-              className='text-uppercase fw-medium transition-300'
-            >{button}</Button>
+            <Link to={`/filteredProducts/${button}`}>
+              <Button
+                variant='outline-secondary'
+                className='text-uppercase fw-medium transition-300'
+                onClick={() => dispatch(filterProducts(button))}
+              >{button}</Button>
+            </Link>
           </div>
         ))}
       </div>

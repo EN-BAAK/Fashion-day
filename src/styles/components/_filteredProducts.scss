@@ -1,0 +1,22 @@
+#filteredProducts {
+  .card {
+    .card-header {
+      img {
+        height: 350px;
+        box-shadow: 1px 3px 5px 0 var(--c-blue);
+      }
+    }
+
+    .card-body {
+      h5 {
+        color: var(--c-grey-text);
+      }
+    }
+
+    .card-footer {
+      .ball {
+        @include same-scale(20px);
+      }
+    }
+  }
+}
