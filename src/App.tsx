@@ -2,6 +2,7 @@ import React from "react"
 import Main from "./components/Main"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import FilteredProducts from "./components/filteredProducts/FilteredProducts"
+import SingleProduct from "./components/filteredProducts/SingleProduct"
 
 const App = (): React.JSX.Element => {
 
@@ -15,6 +16,9 @@ const App = (): React.JSX.Element => {
           <Route
             path="/filteredProducts/:type"
             element={<FilteredProducts />} />
+          <Route
+            path="/filteredProducts/:type/:id"
+            element={<SingleProduct />} />
         </Routes>
       </Router>
     </div>

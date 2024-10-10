@@ -1,0 +1,14 @@
+#single-product {
+  .img-holder {
+    padding-left: 44px;
+    flex: 2;
+
+    img {
+      height: 650px;
+    }
+  }
+
+  .details {
+    flex: 3;
+  }
+}

@@ -25,8 +25,8 @@ const NavigateButtons = (): React.JSX.Element => {
           </div>
         ))}
       </div>
-      <div className="offer p-2 w-50 mt-5 mx-auto rounded-pill">
-        <h3 className='text-uppercase text-center m-0 fw-bold font-special lead'>Sales Up To 50%</h3>
+      <div className="offer p-2 w-50 mt-5 bg-black  mx-auto rounded-pill">
+        <h3 className='text-uppercase text-center text-danger m-0 fw-bold font-special lead'>Sales Up To 50%</h3>
       </div>
       <div className='flex-center py-4 img-holder'>
         <img

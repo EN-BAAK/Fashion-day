@@ -17,4 +17,12 @@ export type ProductCardType = {
 
 export type ProductsStateType = {
   filteredProducts: ProductCardType[];
+  singleProduct: ProductCardType[];
+};
+
+export type CardStateType = {
+  cart: ProductCardType[];
+  amount: number;
+  totalAmount: number;
+  totalPrice: number;
 };

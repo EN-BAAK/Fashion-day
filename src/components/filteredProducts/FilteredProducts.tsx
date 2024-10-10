@@ -16,7 +16,7 @@ const FilteredProducts = (): React.JSX.Element => {
           <h1 className='font-special text-secondary'>{type}</h1>
         </div>
 
-        <Row className='px-md-2 px-1 g-3'>
+        <Row className='px-md-2 px-1 g-5'>
           {
             products
               .filter(product => product.type === type)
@@ -28,6 +28,7 @@ const FilteredProducts = (): React.JSX.Element => {
                   lg={3}
                   key={index}>
                   <ProductsCard
+                    id={product.id}
                     name={product.name}
                     text={product.text}
                     img={product.img}
