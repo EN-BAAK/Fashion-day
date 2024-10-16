@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from "../assets/images/logo-min.png"
 import { Button } from 'react-bootstrap'
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import Cart from '../components/Cart/Cart';
+import { useSelector } from 'react-redux';
+import { CardStateType } from '../misc/types';
 
 const Navbar = (): React.JSX.Element => {
+  const totalAmount = useSelector((state: { cart: CardStateType }) => state.cart.totalAmount)
+  const [open, setOpen] = useState<boolean>(false)
+
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   return (
     <div id='navbar'>
       <div className="bg-black p2 w-full">
@@ -32,10 +41,14 @@ const Navbar = (): React.JSX.Element => {
             <p className='text-capitalize m-0 font-special fw-medium ms-3'>Whish list</p>
           </div>
 
-          <div className="d-flex align-items-center cursor-pointer">
-            <MdOutlineShoppingBag fontSize={22} />
+          <div className="d-flex align-items-center cursor-pointer" onClick={handleOpen}>
+            {totalAmount > 0
+              ? <span className='rounded-circle bg-secondary px-2 font-special text-6 me-1'>{totalAmount}</span>
+              : <MdOutlineShoppingBag fontSize={22} />
+            }
             <p className='text-capitalize m-0 font-special fw-medium ms-3'>Shopping bag</p>
           </div>
+          <Cart openModal={open} onClose={handleClose} />
         </div>
       </div>
 

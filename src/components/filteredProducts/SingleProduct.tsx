@@ -84,6 +84,9 @@ const SingleProduct = (): React.JSX.Element => {
                 onClick={() => dispatch(addToCart({
                   id: item.id,
                   price: item.price,
+                  text: item.text,
+                  img: item.img,
+                  size: size,
                   amount: 1,
                   totalPrice: item.price,
                   name: item.name,
