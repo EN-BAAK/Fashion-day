@@ -5,7 +5,6 @@ import FilteredProducts from "./components/filteredProducts/FilteredProducts"
 import SingleProduct from "./components/filteredProducts/SingleProduct"
 
 const App = (): React.JSX.Element => {
-
   return (
     <div className="App">
       <Router>

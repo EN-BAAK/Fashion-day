@@ -3,9 +3,12 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ProductsStateType } from '../../misc/types'
 import { Button, Form } from 'react-bootstrap'
+import { addToCart } from '../../features/slices/cardSlice'
+import { useDispatch } from 'react-redux'
 
 const SingleProduct = (): React.JSX.Element => {
   const product = useSelector((state: { products: ProductsStateType }) => state.products.singleProduct)
+  const dispatch = useDispatch()
 
   const productSize = product[0].size ? product[0].size[0] : ""
   const productColor = product[0].color[0]
@@ -78,6 +81,14 @@ const SingleProduct = (): React.JSX.Element => {
               <Button size='lg'
                 variant='outline-secondary'
                 className='fw-medium text-uppercase fs-6'
+                onClick={() => dispatch(addToCart({
+                  id: item.id,
+                  price: item.price,
+                  amount: 1,
+                  totalPrice: item.price,
+                  name: item.name,
+                  color: color
+                }))}
               >
                 Add to card
               </Button>
