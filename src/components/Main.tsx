@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../layout/Navbar'
 import Slider from './slider/Slider'
 import NavigateButtons from './navigateButtons/NavigateButtons'
+import ProductSection from './ProductSection/ProductSection'
+import Footer from './Footer/Footer'
 
 
 const Main = (): React.JSX.Element => {
@@ -9,7 +11,9 @@ const Main = (): React.JSX.Element => {
     <div className="main">
       <Navbar />
       <Slider />
-      <NavigateButtons></NavigateButtons>
+      <NavigateButtons />
+      <ProductSection />
+      <Footer />
     </div>
   )
 }
