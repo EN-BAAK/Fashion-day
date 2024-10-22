@@ -23,6 +23,8 @@ const ProductSectionItem = ({ id, img, name, text, size, price, color, totalPric
 
   return (
     <Card className='px-4 product-section-item py-2 border-0 shadow'>
+      <p className="text-uppercase font-special text-danger fs-3 fw-medium m-0 position-absolute float">Sale%</p>
+
       <Card.Header className='border-0 p-0'>
         <img className='rounded-3 w-100' src={img} alt={name} />
       </Card.Header>
@@ -38,8 +40,8 @@ const ProductSectionItem = ({ id, img, name, text, size, price, color, totalPric
           </p>
 
           <div className="flex-center-y justify-content-between pt-4">
-            <p>
-              Size lef: {defaultSize}
+            <p className='text-danger'>
+              Size lef: <span className='text-black-50'>{defaultSize}</span>
             </p>
             <p className='flex-center-y'>
               Color lef: {defaultColor}

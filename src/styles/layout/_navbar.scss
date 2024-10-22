@@ -1,1 +1,5 @@
-
+#navbar {
+  .avatar {
+    @include same-scale(35px);
+  }
+}

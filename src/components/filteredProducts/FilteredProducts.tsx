@@ -1,13 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ProductsStateType } from '../../misc/types'
 import ProductsCard from './ProductsCard'
-import { Col, Row } from 'react-bootstrap'
+import { Button, Col, Form, Row } from 'react-bootstrap'
+import Error from '../Error/Error'
+import { filterGender, filterByColor, filterBySize, filterProducts, sortByPrice } from '../../features/slices/productsSlice'
 
 const FilteredProducts = (): React.JSX.Element => {
   const products = useSelector((state: { products: ProductsStateType }) => state.products.filteredProducts)
+  const error = useSelector((state: { products: ProductsStateType }) => state.products.error)
+  const dispatch = useDispatch()
   const { type } = useParams()
+
+  const genderButtons = ["male", "female"]
+  const colorButtons = ["red", "green", "purple", "yellow", 'orange', "blue", "black", "brown"]
+  const sizeButtons = ["S", "M", "L", "XL"]
+
 
   return (
     <div id='filteredProducts' className='py-5 overflow-x-hidden'>
@@ -16,7 +25,67 @@ const FilteredProducts = (): React.JSX.Element => {
           <h1 className='font-special text-secondary'>{type}</h1>
         </div>
 
-        <Row className='px-md-2 px-1 g-5'>
+        <div className="flex-center-y justify-content-between py-5">
+          <div className="flex-center-y">
+            {genderButtons.map((item, index) => (
+              <div key={index}>
+                <Button
+                  onClick={() => dispatch(filterGender(item))}
+                  variant='outlined-secondary'
+                  size='lg'>
+                  {item}
+                </Button>
+              </div>
+            ))}
+
+            <Button
+              onClick={() => dispatch(sortByPrice())}
+              variant='outlined-secondary'
+              size='lg'>
+              High Price</Button>
+
+            <Form.Select aria-label="Color Select">
+              <option>Select A Color</option>
+              {colorButtons.map((item, index) => (
+                <option
+                  onClick={() => dispatch(filterByColor(item))}
+                  style={{ color: item }}
+                  key={index}
+                  value={item}>{item}</option>
+              ))}
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+
+            <Form.Select
+              disabled={type === "Bags" || type === "Shoes"}
+              aria-label="Size Select">
+              <option>Select A Size</option>
+              {sizeButtons.map((item, index) => (
+                <option
+                  onClick={() => dispatch(filterBySize(item))}
+                  key={index}
+                  value={item}
+                >{item}</option>
+              ))}
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+
+            <div className='pe-5'>
+              <Button
+                onClick={() => dispatch(filterProducts(type))}
+                variant='outlined-secondary'
+                size='lg'>
+                Clear Filter
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {error ? <Error /> : <Row className='px-md-2 px-1 g-5'>
           {
             products
               .filter(product => product.type === type)
@@ -38,7 +107,7 @@ const FilteredProducts = (): React.JSX.Element => {
                 </Col>
               )
           }
-        </Row>
+        </Row>}
       </div>
     </div>
   )

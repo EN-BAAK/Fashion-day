@@ -4,12 +4,15 @@ import { Button } from 'react-bootstrap'
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import Cart from '../components/Cart/Cart';
-import { useSelector } from 'react-redux';
-import { CardStateType } from '../misc/types';
+import { useSelector, useDispatch } from 'react-redux';
+import { AuthStateType, CardStateType } from '../misc/types';
+import { logout } from '../features/slices/authSlice';
 
 const Navbar = (): React.JSX.Element => {
   const totalAmount = useSelector((state: { cart: CardStateType }) => state.cart.totalAmount)
+  const user = useSelector((state: { user: AuthStateType }) => state.user.user)
   const [open, setOpen] = useState<boolean>(false)
+  const dispatch = useDispatch()
 
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -47,6 +50,24 @@ const Navbar = (): React.JSX.Element => {
               : <MdOutlineShoppingBag fontSize={22} />
             }
             <p className='text-capitalize m-0 font-special fw-medium ms-3'>Shopping bag</p>
+          </div>
+
+          <div className="flex-center-y cursor-pointer ps-4">
+            {user.image
+              && <img
+                src={user.image}
+                alt='avatar'
+                className='avatar me-2 rounded-circle'
+              />
+            }
+
+            <div onClick={() => dispatch(logout(user))}>
+              <p
+                title="Sign out"
+                className='font-special m-0 fs-6 fw-medium'>
+                Hi {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
+              </p>
+            </div>
           </div>
           <Cart openModal={open} onClose={handleClose} />
         </div>

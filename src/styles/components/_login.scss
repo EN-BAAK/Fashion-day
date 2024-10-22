@@ -1,0 +1,10 @@
+#login {
+  &.container {
+    height: 100vh;
+
+    .row {
+      max-width: 800px;
+      min-width: 700px;
+    }
+  }
+}

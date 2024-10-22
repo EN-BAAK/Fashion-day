@@ -1,4 +1,9 @@
 .product-section-item {
+  .float {
+    right: 0;
+    @include prefixer(transform, rotate(-45deg) translateX(-35px));
+  }
+
   .card-header {
     img {
       height: 450px;
