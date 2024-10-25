@@ -31,20 +31,24 @@ const FilteredProducts = (): React.JSX.Element => {
               <div key={index}>
                 <Button
                   onClick={() => dispatch(filterGender(item))}
-                  variant='outlined-secondary'
-                  size='lg'>
+                  variant='outline-secondary'
+                  size='lg'
+                  className='text-nowrap mx-2 px-4 py-1 fw-medium'
+                >
                   {item}
                 </Button>
               </div>
             ))}
 
             <Button
-              onClick={() => dispatch(sortByPrice())}
-              variant='outlined-secondary'
-              size='lg'>
+              onClick={() => dispatch(sortByPrice(products))}
+              variant='outline-secondary'
+              size='lg'
+              className='text-nowrap mx-2 px-4 py-1 fw-medium'
+            >
               High Price</Button>
 
-            <Form.Select aria-label="Color Select">
+            <Form.Select className='mx-2 text-nowrap fw-medium' aria-label="Color Select">
               <option>Select A Color</option>
               {colorButtons.map((item, index) => (
                 <option
@@ -53,14 +57,13 @@ const FilteredProducts = (): React.JSX.Element => {
                   key={index}
                   value={item}>{item}</option>
               ))}
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
             </Form.Select>
 
             <Form.Select
               disabled={type === "Bags" || type === "Shoes"}
-              aria-label="Size Select">
+              aria-label="Size Select"
+              className='mx-2 text-nowrap fw-medium'
+            >
               <option>Select A Size</option>
               {sizeButtons.map((item, index) => (
                 <option
@@ -69,15 +72,13 @@ const FilteredProducts = (): React.JSX.Element => {
                   value={item}
                 >{item}</option>
               ))}
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
             </Form.Select>
 
             <div className='pe-5'>
               <Button
                 onClick={() => dispatch(filterProducts(type))}
-                variant='outlined-secondary'
+                variant='outline-secondary'
+                className='me-2 text-nowrap px-4 py-1 fw-medium'
                 size='lg'>
                 Clear Filter
               </Button>

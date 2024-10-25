@@ -11,8 +11,6 @@ const App = (): React.JSX.Element => {
   const user = useSelector((state: { user: AuthStateType }) => state.user.user)
   const { authUser } = user
 
-  console.log(authUser)
-
   return (
     <div className="App">
       <Router>

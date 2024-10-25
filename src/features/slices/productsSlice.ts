@@ -71,7 +71,7 @@ export const productsSlice: Slice = createSlice({
         console.log(err);
       }
     },
-    sortByPrice(state) {
+    sortByPrice(state: ProductsStateType) {
       try {
         const price = state.filteredProducts.sort(
           (a: ProductCardType, b: ProductCardType) =>
@@ -90,7 +90,7 @@ export const productsSlice: Slice = createSlice({
           }
         } else {
           state.error = true;
-          state.filterProducts = [];
+          state.filteredProducts = [];
         }
       } catch (err) {
         console.log(err);
@@ -102,12 +102,11 @@ export const productsSlice: Slice = createSlice({
           product.color.includes(action.payload)
         );
         state.error = false;
-        state.filteredProducts = color;
-        if (color.length < 0) {
+
+        if (color.length === 0) {
           state.error = true;
           state.filteredProducts = [];
         } else {
-          state.error = false;
           state.filteredProducts = color;
           const saveState = JSON.stringify(color);
           sessionStorage.setItem("filteredData", saveState);
@@ -122,12 +121,11 @@ export const productsSlice: Slice = createSlice({
           product.size.includes(action.payload)
         );
         state.error = false;
-        state.filteredProducts = size;
-        if (size.length < 0) {
+
+        if (size.length === 0) {
           state.error = true;
           state.filteredProducts = [];
         } else {
-          state.error = false;
           state.filteredProducts = size;
           const saveState = JSON.stringify(size);
           sessionStorage.setItem("filteredData", saveState);
